@@ -1,0 +1,331 @@
+<head>
+    <title>Demo</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css' crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/magnific-popup.min.css" rel='stylesheet' type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.1/jquery.magnific-popup.min.js" crossorigin="anonymous"></script>
+</head>
+
+<template name="layout">
+    {{> yield}}
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container wow bounceInUp">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Creator</h2>
+                    <h3 class="section-subheading text-muted">Tóm tắt cho bộ albums</h3>
+                </div>
+            </div>
+            <div class="row">
+                {{#each authors}}
+                <div class="col-sm-{{class}} wow bounceInUp">
+                    <div class="team-member">
+                        <img src="{{getAvatar}}" class="img-responsive img-circle" alt="">
+                        <h4>{{name}}</h4>
+                        <p class="text-muted">{{bio}}</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="{{email}}"><i class="fa fa-google-plus"></i></a>
+                            </li>
+                            <li><a href="{{facebook}}"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="row wow bounceInUp">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Minh Pro :D</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Các Tính Năng Khác</a>
+                        </li>
+                        <li><a href="http://getbootstrap.com/">BOOSTRAP</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</template>
+
+<template name="home">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">{{pagetitle}}</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="#services">{{navIntro}}</a>
+                    </li>
+
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Albums</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">{{milestone}}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Creator</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/admin">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header style="background-image: url({{getPageImage}});">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in wow bounceInUp">{{introhead}}</div>
+                <div class="intro-heading wow bounceInUp">{{introlarge}}</div>
+                <a href="#services" class="page-scroll btn btn-xl wow bounceInUp">{{navIntro}}</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row wow bounceInUp">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{{navIntro}}</h2>
+                    <h3 class="section-subheading text-muted">{{summary}}</h3>
+                </div>
+            </div>
+            <div class="row text-center wow bounceInUp">
+                {{#each navIntros}}
+                <div class="col-md-{{class}}">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa {{icon}} fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">{{title}}</h4>
+                    <p class="text-muted">{{content}}</p>
+                </div>
+
+                {{/each}}
+                <!--
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Nội Dung 2</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="service-heading">Nội Dung 3</h4>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                </div>
+-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Albums</h2>
+                    <h3 class="section-subheading text-muted">Albums</h3>
+                </div>
+            </div>
+            <div class="row">
+                {{#each albums}}
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#{{_id}}" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{getPicture}}" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>{{title}}</h4>
+                        <p class="text-muted">{{description}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row wow bounceInUp">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">{{title}}</h2>
+                    <h3 class="section-subheading text-muted">{{description}}</h3>
+                </div>
+            </div>
+            <div class="row wow bounceInUp">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        {{#each abouts}} {{#if invert}}
+                        <li class="timeline-inverted wow bounceInUp">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{{getPicture}}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{date}}</h4>
+                                    <h4 class="subheading">{{title}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{summary}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {{else}}
+                        <li class="wow bounceInUp">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="{{getPicture}}" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>{{date}}</h4>
+                                    <h4 class="subheading">{{title}}</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">{{summary}}</p>
+                                </div>
+                            </div>
+                        </li>
+                        {{/if}} {{/each}}
+                        <!--
+                        <li class="wow bounceInUp">
+                            <div class="timeline-image wow bounceInUp">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>December 2012</h4>
+                                    <h4 class="subheading">Transition to Full Service</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted wow bounceInUp">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>July 2014</h4>
+                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted wow bounceInUp">
+                            <div class="timeline-image">
+                                <h4>Be Part
+                                    <br>Of Our
+                                    <br>Story!</h4>
+                            </div>
+                        </li>
+-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{#each albums}}
+    {{> modal}}
+    {{/each}} {{scripts}}
+</template>
+
+<template name="modal">
+     <div class="portfolio-modal modal fade" id="{{_id}}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>{{title}}</h2>
+                            <p class="item-intro text-muted">{{description}}</p>
+                            <img class="img-responsive img-centered" src="{{getNewPic}}" alt="">
+                            <p>{{summary}}</p>
+                            <ul class="list-inline">
+                                <li>Title: {{title}}</li>
+                                <li>Description: {{description}}</li>
+                            </ul>
+                            <a href="{{pathFor 'detail'}}" class="btn btn-primary"><i class="fa fa-share"></i> Next</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

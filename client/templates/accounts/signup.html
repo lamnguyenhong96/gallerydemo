@@ -1,0 +1,17 @@
+<template name="signup">
+    <div class="form-login" style="background: url('{{getSigninImage}}') repeat fixed center center;position: absolute;min-height: 100%;width: 100%;background-size: 100% auto;padding: 10px;z-index: 99;">
+        <div class="container">
+            <form class="login-block">
+                <h1>Signup</h1>
+                <p class="account-alert">Create your new account!</p>
+                <fieldset>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </fieldset>
+                <button type="submit">Signup</button>
+                <a class="login-signup" href="/admin">Login</a>
+            </form>
+        </div>
+    </div>
+</template>
